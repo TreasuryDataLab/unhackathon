@@ -33,7 +33,7 @@ if menu == "Clustering":
                     size="GDP per Capita t-1 (Current US$)",text='Country')
     fig1.update_layout(title="Clustering Food Price in the World")
     st.plotly_chart(fig1, use_container_width=True)
-    col1,col2, col3 = st.columns(3)
+    col1,col2, col3 = st.beta_columns(3)
     year_1 = int(year) - 1
     with col1:
         gap = data[(data.Year == int(year))]["Prevalence of Undernourishment (%)"].mean() - data[(data.Year == int(year_1))]["Prevalence of Undernourishment (%)"].mean()
@@ -51,7 +51,7 @@ if menu == "Clustering":
             st.write("Minus " + str('{0:.2f}'.format(gap)) + " from " + str(year_1))
         else :
             st.write("Plus "+ str('{0:.2f}'.format(gap)) + " from " + str(year_1))
-    col4,col5,col6 = st.columns(3)
+    col4,col5,col6 = st.beta_columns(3)
     with col4:
         gap = data[(data.Year == int(year))]["Agri to GDP t-1 (%)"].mean() - data[(data.Year == int(year_1))]["Agri to GDP t-1 (%)"].mean()
         st.metric(label="Agricultural to GDP " + str(year), value='{0:.2f}'.format(data[(data.Year == int(year))]["Agri to GDP t-1 (%)"].mean()),
@@ -71,12 +71,12 @@ if menu == "Clustering":
 if menu == "Prediction":
     st.write("### Prediction")
     country = st.selectbox("Choose country",data.Country.unique())
-    col1,col2,col3 = st.columns(3)
+    col1,col2,col3 = st.beta_columns(3)
     with col1:
         gdp = st.number_input('Input GDP per Capita(US$)',value=500.00)
     with col3:
         fpi = st.number_input('Input Food Price Index',value=500.00)
-    col4,col5,col6 = st.columns(3)
+    col4,col5,col6 = st.beta_columns(3)
     with col4:
         agri = st.number_input('Input Agricultural share of GDP (%)')
     with col6:
