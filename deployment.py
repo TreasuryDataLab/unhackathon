@@ -12,7 +12,7 @@ LOGO_IMAGE = "./sdg.png"
 data_read = pd.read_excel('All Data.xlsx',engine='openpyxl')
 data = data_read[(data_read.Country != "Dominica")]
 #Disable Warning
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 #Import model
 model = pickle.load(open('finalized_model.sav', 'rb'))
 
