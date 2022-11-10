@@ -9,7 +9,7 @@ import pickle
 
 LOGO_IMAGE = "./sdg.png"
 #Read the Data
-data_read = pd.read_excel('All Data.xlsx')
+data_read = pd.read_excel('All Data.xlsx',engine='openpyxl')
 data = data_read[(data_read.Country != "Dominica")]
 #Disable Warning
 st.set_option('deprecation.showPyplotGlobalUse', False)
