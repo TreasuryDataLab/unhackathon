@@ -8,4 +8,4 @@ plotly
 xlrd
 pandas
 openpyxl
-streamlit==1.4.0
+streamlit==1.13.0
