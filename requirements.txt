@@ -8,4 +8,4 @@ plotly
 xlrd
 pandas
 openpyxl
---upgrade streamlit
+streamlit --upgrade
