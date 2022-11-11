@@ -73,14 +73,14 @@ if menu == "Prediction":
     country = st.selectbox("Choose country",data.Country.unique())
     col1,col2,col3 = st.columns(3)
     with col1:
-        gdp = st.number_input('Input GDP per Capita(US$)',value=500.00)
+        gdp = st.number_input('Input GDP per Capita(US$)',value=data[(data.Country == country) & (data.Year == 2022)]['GDP per Capita t-1 (Current US$)'].values[0])
     with col3:
-        fpi = st.number_input('Input Food Price Index',value=500.00)
+        fpi = st.number_input('Input Food Price Index',value=data[(data.Country == country) & (data.Year == 2022)]['Food Price Index (May)'].values[0])
     col4,col5,col6 = st.columns(3)
     with col4:
-        agri = st.number_input('Input Agricultural share of GDP (%)')
+        agri = st.number_input('Input Agricultural share of GDP (%)',value=data[(data.Country == country) & (data.Year == 2022)]['Agri to GDP t-1 (%)'].values[0])
     with col6:
-        mer = st.number_input('Agricultural Share of Merchandise Import (%)')
+        mer = st.number_input('Agricultural Share of Merchandise Import (%)',value = data[(data.Country == country) & (data.Year == 2022)]['Agri Raw Materials Import to Total Merchandise Import t-1 (%)'].values[0])
     data_pred = pd.DataFrame({
         "country" : country,
         "gdp" : gdp,
@@ -88,7 +88,18 @@ if menu == "Prediction":
         "agri" : agri,
         "mer" : mer
     }, index=[0])
-    st.write("The data for predict is below : ", data_pred)
+    st.write("The data for predict is below : ")
+    st.write("### Country : " + country)
+    col1,col2, col3 = st.columns(3)
+    with col1:
+        st.write('GDP per Capita : ' + '{0:.2f}'.format(gdp))
+    with col3:
+        st.write('Food Price Index : ' + '{0:.2f}'.format(fpi))
+    col4,col5,col6 =  st.columns(3)
+    with col4:
+        st.write('Input Agricultural share of GDP (%) : ' + '{0:.2f}'.format(agri))
+    with col6:
+        st.write('Input Agricultural Share of Merchandise Import (%) : ' + '{0:.2f}'.format(mer))
     if st.button('Predict'):
         pred = model.predict(data_pred.drop(['country'],axis=1))
         st.write("Predicted of Prevalance Undernourishment in " + str(country) + " is " + str(pred[0]))
