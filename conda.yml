@@ -5,7 +5,5 @@ dependencies:
   - matplotlib==3.2.2
   - numpy=1.21.*
   - pandas==1.0.5
--plotly
--streamlit
-  - flask
-  - pip
+  - plotly
+  - pip --upgrade
