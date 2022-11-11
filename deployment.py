@@ -102,4 +102,4 @@ if menu == "Prediction":
         st.write('Input Agricultural Share of Merchandise Import (%) : ' + '{0:.2f}'.format(mer))
     if st.button('Predict'):
         pred = model.predict(data_pred.drop(['country'],axis=1))
-        st.write("Predicted of Prevalance Undernourishment in " + str(country) + " is " + '{0:.2f}'.format(pred[0])))
+        st.write("Predicted of Prevalance Undernourishment in " + str(country) + " is " + str('{0:.2f}'.format(pred[0]))))
