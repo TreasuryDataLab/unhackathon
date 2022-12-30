@@ -83,10 +83,10 @@ if menu == "Prediction":
         mer = st.number_input('Agricultural Share of Merchandise Import (%)',value = data[(data.Country == country) & (data.Year == 2022)]['Agri Raw Materials Import to Total Merchandise Import t-1 (%)'].values[0])
     data_pred = pd.DataFrame({
         "country" : country,
-        "gdp" : gdp,
-        "fpi" : fpi,
-        "agri" : agri,
-        "mer" : mer
+        "GDP per Capita t-1 (Current US$)" : gdp,
+        "Food Price Index (May)" : fpi,
+        "Agri to GDP t-1 (%)" : agri,
+        "Agri Raw Materials Import to Total Merchandise Import t-1 (%)" : mer
     }, index=[0])
     st.write("The data for predict is below : ")
     st.write("### Country : " + country)
