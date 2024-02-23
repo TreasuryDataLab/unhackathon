@@ -1,4 +1,4 @@
-streamlit
+streamlit==1.7.0
 plotly
-openpyxl
-scikit-learn
+openpyxl==3.1.2
+scikit-learn==1.0.2
